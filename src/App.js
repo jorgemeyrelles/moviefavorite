@@ -1,10 +1,10 @@
 import React from "react";
+import MovieLine from "./components/MovieLine";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      Hello, world
-    </div>
+    <MovieLine />
   );
 }
 
