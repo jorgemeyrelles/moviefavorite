@@ -2,10 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import { BrowserRouter } from 'react-router-dom';
+// import { MoviesProvider } from './context/MoviesContext';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    {/* <MoviesProvider> */}
+      <App />
+    {/* </MoviesProvider> */}
+  </BrowserRouter>,
   document.getElementById('root')
 );

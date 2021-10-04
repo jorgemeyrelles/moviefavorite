@@ -20,13 +20,13 @@ function MovieLine() {
       <section className="lists">
         {movieList.map((e, i) => {
           return (
-            <div className="movieRow">
+            <div className="movieRow" key={ i }>
               <h2>{e.title}</h2>
               <div className="movieRow--listarea">
                 <div className="movieRow--list">
                   {e.items.results.length > 0 &&
                     e.items.results.map((value, key) => (
-                      <div className="movieRow--item">
+                      <div className="movieRow--item" key={ key }>
                         <img src={`${URL_IMG}${value.poster_path}`} alt={`poster ${value.name}`} />
                       </div>
                   ))}

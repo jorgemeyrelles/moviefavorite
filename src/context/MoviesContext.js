@@ -1,19 +1,25 @@
-import React, { useEffect } from 'react';
-import gettingDataFromTmdb from './services/dataTmdb';
+import React, { createContext, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 
-function MoviesContext() {
-  useEffect(() => {
-    const loadAll = async () => {
-      let list = await gettingDataFromTmdb();
-      console.log(list);
-    }
+const DataContext = createContext();
 
-    loadAll();
-  }, []);
+function MoviesProvider({ children }) {
+  const [allData, setAllData] = useState({});
+
+  const value = {
+    allData,
+    setAllData
+  }
+  
   return (
-  <div>
-    Olá, mundo!
-  </div>);
+    <DataContext.Provider value={ value }>
+      { children }
+    </DataContext.Provider>
+  );
 }
 
-export default MoviesContext;
+MoviesProvider.propTypes = {
+  children: PropTypes.node,
+}.isRequired;
+
+export { MoviesProvider, DataContext };
