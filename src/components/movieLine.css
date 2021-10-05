@@ -38,3 +38,15 @@
 .lists2 {
   margin-top: 70px;
 };
+
+.slick-prev:before {
+  left: 3% !important;
+  z-index: 9999;
+  background-color: #eee;
+};
+
+.slick-next:before {
+  right: 3% !important;
+  z-index: 9999;
+  background-color: #eee;
+};
