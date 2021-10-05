@@ -21,7 +21,7 @@ function Highlighted() {
 
   const styleMain = {
     backgroundSize: 'cover',
-    backgroundPosition: 'center 20%',
+    backgroundPosition: 'center 10%',
     backgroundImage: `url(http://image.tmdb.org/t/p/original${clicked.poster_path})`,
   };
 

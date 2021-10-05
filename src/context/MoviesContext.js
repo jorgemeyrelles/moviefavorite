@@ -6,12 +6,15 @@ const DataContext = createContext();
 function MoviesProvider({ children }) {
   const [allData, setAllData] = useState({});
   const [clickedState, setClickedState] = useState([]);
+  const [showHeader, setShowHeader] = useState(false);
 
   const value = {
     allData,
     setAllData,
     clickedState,
-    setClickedState
+    setClickedState,
+    showHeader,
+    setShowHeader,
   }
   
   return (
