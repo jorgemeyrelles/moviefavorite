@@ -52,4 +52,9 @@ export const gettingDataFromTmdb = async ( ) => {
     ]
 }
 
+export const getMovieInfo = async (url) => {
+  let info = await basicFetch(`${url}${API_KEY}`);
+  return info;
+}
+
 export default gettingDataFromTmdb;

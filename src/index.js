@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './components/movieLine.css';
+import './components/featuredMovie.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-// import { MoviesProvider } from './context/MoviesContext';
+import { MoviesProvider } from './context/MoviesContext';
 
 ReactDOM.render(
   <BrowserRouter>
-    {/* <MoviesProvider> */}
+    <MoviesProvider>
       <App />
-    {/* </MoviesProvider> */}
+    </MoviesProvider>
   </BrowserRouter>,
   document.getElementById('root')
 );

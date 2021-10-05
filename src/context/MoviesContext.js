@@ -1,14 +1,17 @@
-import React, { createContext, useEffect, useState } from 'react';
+import React, { createContext, useState } from 'react';
 import PropTypes from 'prop-types';
 
 const DataContext = createContext();
 
 function MoviesProvider({ children }) {
   const [allData, setAllData] = useState({});
+  const [clickedState, setClickedState] = useState([]);
 
   const value = {
     allData,
-    setAllData
+    setAllData,
+    clickedState,
+    setClickedState
   }
   
   return (

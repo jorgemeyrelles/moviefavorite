@@ -1,17 +1,14 @@
 import React from "react";
-import MovieLine from "./components/MovieLine";
 import "./App.css";
 import { Route, Switch } from "react-router";
 import Home from "./pages/Home";
-import { MoviesProvider } from "./context/MoviesContext";
+import './components/movieLine.css';
+import './components/featuredMovie.css';
 
 function App() {
   return (
     <Switch>
-      <Route exact path="/" component={ MovieLine } />
-      <MoviesProvider>
-        <Route exact path="/home" component={ Home } />
-      </MoviesProvider>
+      <Route exact path="/" component={ Home } />
     </Switch>
   );
 }
