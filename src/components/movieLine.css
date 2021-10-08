@@ -12,7 +12,7 @@
 }
 
 .movieRow--list {
-  width: 99999999px;
+  transition: all ease 0.5s;
 }
 
 .movieRow--item {
@@ -32,7 +32,7 @@
 }
 
 .lists {
-  margin-top: -100px;
+  margin-top: -80px;
 }
 
 .lists2 {
@@ -50,3 +50,28 @@
   z-index: 9999;
   background-color: #eee;
 };
+/* 
+.movieRow--right, .movieRow--left {
+  position: absolute;
+  width: 40px;
+  height: 225px;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0;
+};
+
+.movieRow--left {
+  left: 0;
+};
+
+.movieRow--right {
+  right: 0;
+}; */
+
+/* .movieRow:hover .movieRow--left:hover,
+.movieRow:hover .movieRow--right:hover {
+  opacity: 1;
+} */

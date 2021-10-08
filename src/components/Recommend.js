@@ -1,28 +1,31 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useHistory } from 'react-router';
 import { DataContext } from '../context/MoviesContext';
-import { getMovieInfo } from '../services/dataTmdb';
+import gettingDataFromTmdb, { getMovieInfo } from '../services/dataTmdb';
 import '../components/featuredMovie.css';
 
-function Highlighted() {
-  const { clickedState } = useContext(DataContext);
-  const [clicked, setClicked] = useState([]);
+function Recommend() {
+  const { clickedState, allData } = useContext(DataContext);
+  const [recom, setRecom] = useState([]);
   const [hover, setHover] = useState(false);
   const history = useHistory();
 
   useEffect(() => {
     const loadAll = async () => {
-      let list = await getMovieInfo(clickedState);
-      setClicked(list);
+      let list = await gettingDataFromTmdb();
+      const originals = list.find((e) => e.slug === 'originals');
+      const index = Math.floor(Math.random() * originals.items.results.length -1);
+      const movie = originals.items.results[index];
+      let movieRecom = await getMovieInfo(`/tv/${movie.id}?language=pt-BR&api_key=`);
+      setRecom(movieRecom);
     }
     loadAll();
-  }, [clickedState]);
-  console.log(clicked);
+  }, [clickedState, allData]);
 
   const styleMain = {
     backgroundSize: 'cover',
     backgroundPosition: 'center 10%',
-    backgroundImage: `url(http://image.tmdb.org/t/p/original${clicked.poster_path})`,
+    backgroundImage: `url(http://image.tmdb.org/t/p/original${recom.poster_path})`,
   };
 
   // não está funcionando utilizando arquivo css
@@ -68,7 +71,6 @@ function Highlighted() {
   };
 
   const featuredDescription = {
-    height: '100px',
     marginRight: '15px',
     fontSize: '20px',
     color: '#999',
@@ -98,11 +100,11 @@ function Highlighted() {
 
   const genresArr = () => {
     const arr = [];
-    clicked.genres && Object.values(clicked.genres).map((e, i) => arr.push(e.name));
+    recom.genres && Object.values(recom.genres).map((e, i) => arr.push(e.name));
     return arr.join(', ');
   }
 
-  let description = clicked.overview;
+  let description = recom.overview;
   if (description.length > 200) {
     description = description.substring(0, 200)+'...';
   };
@@ -112,18 +114,18 @@ function Highlighted() {
       <div style={ styleVertical }>
         <div style={ styleHorizontal }>
           <div style={ featuredName }>
-            { Object.keys(clicked).includes('name') ? clicked.name : clicked.title }
+            { Object.keys(recom).includes('name') ? recom.name : recom.title }
           </div>
           <div style={ featuredInfo }>
             <div style={ featuredPoints }>
-              { clicked.vote_average } pontos
+              { recom.vote_average } pontos
             </div>
             <div style={ featuredSeasons }>
-              { Object.keys(clicked).includes('first_air_date')
-                ? (new Date(clicked.first_air_date)).getFullYear() : (new Date(clicked.release_date)).getFullYear() }
+              { Object.keys(recom).includes('first_air_date')
+                ? (new Date(recom.first_air_date)).getFullYear() : (new Date(recom.release_date)).getFullYear() }
             </div>
             <div style={ featuredSeasons }>
-              { clicked.number_of_seasons } temporada{clicked.number_of_seasons > 1 ? 's' : ''}
+              { recom.number_of_seasons } temporada{recom.number_of_seasons > 1 ? 's' : ''}
             </div>
             <div style={ featuredDescription }>{ description }</div>
             <div style={ { marginTop: '15px' } }>
@@ -150,4 +152,4 @@ function Highlighted() {
   );
 }
 
-export default Highlighted;
+export default Recommend;
