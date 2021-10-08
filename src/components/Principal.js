@@ -101,7 +101,7 @@ function Principal() {
       <div className="page">
         <Header />
         { high ? <Highlighted /> : <Recommend /> }
-        <section className={ high ? "lists" : "lists2" }>
+        <section className="lists">
           {movies.map((e, i) => {
             return (
               <div className="movieRow" key={ i }>

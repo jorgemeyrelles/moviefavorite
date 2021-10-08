@@ -71,6 +71,7 @@ function Recommend() {
   };
 
   const featuredDescription = {
+    height: '100px',
     marginRight: '15px',
     fontSize: '20px',
     color: '#999',
