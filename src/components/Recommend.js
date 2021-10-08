@@ -20,7 +20,7 @@ function Recommend() {
       setRecom(movieRecom);
     }
     loadAll();
-  }, [clickedState, allData]);
+  }, []);
 
   const styleMain = {
     backgroundSize: 'cover',

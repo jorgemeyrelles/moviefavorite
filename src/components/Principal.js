@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { DataContext } from '../context/MoviesContext';
 import gettingDataFromTmdb from '../services/dataTmdb';
-import Footer from './Footer';
-import Header from './Header';
+// import Footer from './Footer';
+// import Header from './Header';
 import Highlighted from './Highlighted';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
@@ -99,7 +99,7 @@ function Principal() {
     };
     return (
       <div className="page">
-        <Header />
+        {/* <Header /> */}
         { high ? <Highlighted /> : <Recommend /> }
         <section className="lists">
           {movies.map((e, i) => {
@@ -145,7 +145,7 @@ function Principal() {
             )
           })}
         </section>
-        <Footer />
+        {/* <Footer /> */}
       </div>
     )
   }
