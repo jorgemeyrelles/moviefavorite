@@ -104,10 +104,10 @@ function Recommend() {
     return arr.join(', ');
   }
 
-  let description = recom.overview;
-  if (description.length > 200) {
-    description = description.substring(0, 200)+'...';
-  };
+   let description = recom.overview ? recom.overview : [];
+   if (description.length > 200) {
+     description = description.substring(0, 200)+'...';
+   };
 
   return (
     <section className="featured" style={ styleMain }>

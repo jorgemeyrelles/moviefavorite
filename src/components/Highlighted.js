@@ -102,7 +102,7 @@ function Highlighted() {
     return arr.join(', ');
   }
 
-  let description = clicked.overview;
+  let description = clicked.overview ? clicked.overview : [];
   if (description.length > 200) {
     description = description.substring(0, 200)+'...';
   };
