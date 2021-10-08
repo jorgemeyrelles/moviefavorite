@@ -132,8 +132,8 @@ function Recommend() {
             <div style={ { marginTop: '15px' } }>
               <div
                 role="button"
-                onKeyPress={ () => history.push('/') }
-                onClick={ () => history.push('/') }
+                onKeyPress={ () => history.push('/moviefavorite/') }
+                onClick={ () => history.push('/moviefavorite/') }
                 tabIndex="0"
                 style={ featuredBtnDetail(hover) }
                 onPointerOver={ ()=> setHover(true) }

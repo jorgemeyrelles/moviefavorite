@@ -14,8 +14,8 @@ function Header() {
       <div className="headerLogo">
         <div
           role="button"
-          onKeyPress={ () => history.push('/') }
-          onClick={ () => history.push('/') }
+          onKeyPress={ () => history.push('/moviefavorite/') }
+          onClick={ () => history.push('/moviefavorite/') }
           tabIndex="0"
         >
           <img style={ { height: '30px' } } src={ C4 } alt="logo" />
@@ -23,8 +23,8 @@ function Header() {
       </div>
       <div
           role="button"
-          onKeyPress={ () => history.push('/') }
-          onClick={ () => history.push('/') }
+          onKeyPress={ () => history.push('/moviefavorite/') }
+          onClick={ () => history.push('/moviefavorite/') }
           tabIndex="0"
         >
           <img style={ { height: '30px', borderRadius: '5px' } } src={ C5 } alt="logo" />
