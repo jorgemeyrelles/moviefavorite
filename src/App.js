@@ -8,7 +8,7 @@ import './components/featuredMovie.css';
 function App() {
   return (
     <Switch>
-      <Route exact path="/" component={ Home } />
+      <Route exact path="/moviefavorite/" component={ Home } />
     </Switch>
   );
 }
